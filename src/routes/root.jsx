@@ -11,11 +11,7 @@ export default function Root() {
     return (
       <>
          <Navbar/>
-         <Hero />
-         <Services/>
-         <About/>
-         <Reviews/>
-         <Footer/>
+         <Hero/>
       <ScrollRestoration />
       </>
     )

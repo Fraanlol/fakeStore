@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-       <section className="mb-20 footer pt-8 z-20 absolute bg-[color:var(--color-1)] w-full pb-16">
+       <section className="mb-20 footer pt-8 z-20 relative bg-[color:var(--color-1)] w-full pb-16">
             <div className="flex justify-center items-center footer my-16">
                 <div className="mr-36px">
                     <p className="text-2xl mb-4 font-bold">Receive our latest news</p>

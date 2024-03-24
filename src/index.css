@@ -114,7 +114,7 @@ h1{
 }
 
 .show{
-  min-height: 100rem;
+  min-height: 100vh;
   background: var(--color-1);}
 
 .no-scroll{
