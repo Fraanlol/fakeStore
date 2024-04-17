@@ -1,16 +1,16 @@
 # Store Project
 
-Url: fakestore-theta.vercel.app
+Take a look [here](https://fakestore-theta.vercel.app/)
 
 Made with:
-  -React
-  -React Router
-  -Vite
-  -Tailwind
-  -i18n
+  - React
+  - React Router
+  - Vite
+  - Tailwind
+  - i18n
   
 Resources from: 
-  -fakeStore API
+  - fakeStore API
 
 With this project i've used the opportunity to add new react knowledge, i've used for first time React Context to manage the global state of the shopping bag.
 I've decided to use Tailwind since i like the quickness it gives at the time of building a small project like this one!
