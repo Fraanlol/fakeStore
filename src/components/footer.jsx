@@ -1,27 +1,29 @@
 export default function Footer() {
     return (
-       <section className="mb-20 footer pt-8 z-20 relative bg-[color:var(--color-1)] w-full pb-16">
-            <div className="flex justify-center items-center footer my-16">
-                <div className="mr-36px">
-                    <p className="text-2xl mb-4 font-bold">Receive our latest news</p>
-                    <div className="flex justify-center items-start flex-col">
-                        <p>Mail</p>
-                        <input className="footer-contact" type="mail" name="" id="" placeholder="Dirección de correo" />
-                        <button className="footer-cta" disabled>Send</button>
-                    </div>
-                </div>
-                <div className=" mx-24">
-                    <p className="text-2xl font-bold">Contact us</p>
-                    <p>ocsonbrand@gmail.com</p>
-                </div>
-                <div>
-                    <p className="text-2xl font-bold">Social</p>
-                    <p>Soon</p>
-                </div>
-            </div>
-            <p class="text-center text-gray-500 text-xs">
-                &copy;2023 Ocson LLC. All rights reserved.
+      <div className="bg-[color:var(--color-1)] px-4 md:px-24 pt-8 2xl:px-60">
+        <div className="mb-8">
+            <p className="text-3xl font-bold pb-4">About</p>
+            <p className="text-white">Our promise is to perform responsibly as a leading, global company. 
+                Sign up for texts to be notified about our best offers on the most selling products.
             </p>
-       </section>
+        </div>
+        <div className="flex flex-row justify-start items-start gap-16 mb-16">
+            <div>
+                <p className="text-3xl pb-4 font-bold">Shop</p>
+                <p className="text-white pb-4 cursor-pointer">Shirts</p>
+                <p className="text-white pb-4 cursor-pointer">Jackets</p>
+                <p className="text-white pb-4 cursor-pointer">Accessories</p>
+                <p className="text-white pb-4 cursor-pointer">Hoodies</p>
+            </div>
+            <div>
+                <p className="text-3xl pb-4 font-bold">Resources</p>
+                <p className="text-white pb-4 cursor-pointer">GitHub</p>
+                <p className="text-white pb-4 cursor-pointer">FakeStore API</p>
+            </div>
+        </div>
+        <div>
+            <p className="text-black font-sm font-bold text-center">© 2023 FakeShop Inc. All Rights Reserved.</p>
+        </div>
+      </div>
     )
   }

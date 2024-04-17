@@ -1,24 +1,21 @@
-import { NavLink } from "react-router-dom";
+import zIndex from "@mui/material/styles/zIndex";
+import { useTranslation } from "react-i18next";
 
-export default function Hero() {
-    return (
-       <section className="mb-16 relative">
-        <div className="flex flex-row items-center justify-center section-hero text-white z-20 hero-img">
-            <div className="hero-mainContent flex flex-row justify-center items-center flex-wrap flex-auto z-20 gap-x-16 gap-y-8">
-                <div className="font-bold text-center leading-snug text-justify">
-                    <h1><span className="mobile-color text-justify">Boost</span> your<br/>business.</h1> 
-                </div>
-                <div className="hero-copy-mobile flex flex-col justify-start align-start">
-                    <div>
-                        <p className="text-center text-xl">Drive e-commerce success with expert guidance.</p>
-                    </div>
-                    <div className="w-fit">
-                        <NavLink to="/contact" className="hero-cta">Sell</NavLink>
-                    </div>
-                </div>
-            </div>
+export default function Main(){
+    const { i18n, t } = useTranslation();
+
+  return (
+    <main className="hero-img">
+      <div className="overlay"></div>
+      <div className="w-full py-24 z-10 relative md md:py-44 lg:py-60">
+        <div className=" flex items-center justify-center flex-col h-full text-white"> 
+          <p className="hero-secondary-copy text-3xl mb-2 font-['Montserrat']">LOOK BEAUTIFUL</p>
+          <p className="hero-main-copy text-5xl font-bold mb-4 drop-shadow-lg">THIS SEASON</p>
+          <button className="bg-[color:var(--color-1)] px-8 py-1 rounded-sm">
+            BUY
+          </button>
         </div>
-       </section>
-    )
-  }
-  
+      </div>
+    </main>
+  );
+};

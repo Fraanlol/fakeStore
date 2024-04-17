@@ -1,16 +1,30 @@
-import { Player } from '@lottiefiles/react-lottie-player';
-import AionData from '../assets/icons8-menu.json'
 import { useRef, useState, useEffect } from 'react';
 import { NavLink } from "react-router-dom";
-import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import { useScrollDirection } from "./hooks/useScrollDirection";
 import SvgIcon from '@mui/material/SvgIcon';
+import { LANGUAGES } from "../constants";
+import { useTranslation } from "react-i18next";
+import { useCart } from "../context/cartContext";
+
+
 export default function Navbar() {
+    const cartContext = useCart()
     const playerRef = useRef(null);
     const scrollWatcher = useRef(null);
     const [scrollDirection, setScrollDirection] = useState(null);
     const [isAtTop, setIsAtTop] = useState(true);
     const scrollDir = useScrollDirection();
+
+    function showChart(){
+      document.querySelector('#shopList').classList.toggle('showCarr')
+    }
+    
+
+    const { i18n, t } = useTranslation();
+    const onChangeLang = (e) => {
+        const lang_code = e.target.value;
+        i18n.changeLanguage(lang_code);
+      };
 
     useEffect(() => {
       const watcher = scrollWatcher.current;
@@ -41,73 +55,67 @@ export default function Navbar() {
     } else {
       styles.searchInput += " placeholder:text-zinc-400";
       styles.header =
-        "bg-white/30 text-black stroke-black backdrop-blur-xl h-16 border-white/30";
+        "bg-white/80 text-black stroke-black backdrop-blur-xl h-16 border-white/30";
       if (scrollDir === "down") styles.header += " -translate-y-full";
-    }
-
-
-    function addEvent(){
-      document.getElementById('lottie').addEventListener('click', e => {
-        if(playerRef.current.state.instance.isPaused == true){
-          playerRef.current.play();
-          document.querySelector('.navWrapper').classList.toggle('show');
-          document.querySelector('.logoContainer').classList.toggle('no-title');
-        }
-      })
-    }
-    function enableScroll(){
-      document.body.classList.toggle('no-scroll');
     }
 
     return (
       <>
        <div ref={scrollWatcher}  className="h-20 w-full absolute"></div>
         <header className={`navWrapper sticky top-0 z-50 w-full flex items-center justify-between py-3 px-3 lg:px-8 transition-all duration-200 border-b ${styles.header}`}>
-          <div className="logoContainer flex-1 text-3xl lg:text-2xl font-medium text-center flex flex-row justify-start justify-center items-center">
-            <p className='cursor-pointer'>Store</p>
-          </div>
           <nav className="flex-1 text-md font-light ml-1 ml-12 desktop-nav">
+            <div className='absolute top-5'>
+              <img src="./logo.png" alt="" width={250} height={250}/>
+            </div>
             <ul className="flex flex-row justify-center">
-              <li className='mx-6 hover:shadow-buttons border-yellow-600 cursor-pointer'><NavLink to="/#">Home</NavLink></li>
-              <li className='mx-6 hover:shadow-buttons border-yellow-600 cursor-pointer'><NavLink to="/tienda">Shop</NavLink></li>
+              <li className='mx-6 hover:shadow-buttons border-yellow-600 cursor-pointer'><NavLink to="/#">{t("home")}</NavLink></li>
+              <li className='mx-6 hover:shadow-buttons border-yellow-600 cursor-pointer'><NavLink to="/tienda">{t("shop")}</NavLink></li>
               <li className="mx-6 hover:shadow-buttons border-yellow-600 cursor-pointer">
-                <div className="content flex items-center w-fit rounded-md flex flex-row justify-center items-center">
-                  <a className='pr-2 font-medium'>
-                    <SvgIcon>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-                  </svg>
-                   </SvgIcon>
-                  </a>
-                  (0)
+                <div className="content flex items-center w-fit rounded-md flex-row justify-center">
+                <div className='pr-2 font-medium' onClick={showChart}>
+                  <img src="./shop.svg" alt="" width={35} height={35}/>
+                </div>
+                  {cartContext.isCartActive && <span>({cartContext.items.length})</span>}
                 </div>
               </li>
             </ul>
           </nav>
-          <nav className="flex-1 text-xl font-thin hidden mobile-nav flex justify-end items-center z-50">
-            <div className="content flex items-center w-fit rounded-md flex flex-row justify-center items-center">
-                    <a className='pr-2 font-medium'>
-                      <ShoppingBagOutlinedIcon fontSize="large" viewBox='0 0 24 24' strokeWidth='.1'/>
-                    </a>
+          <nav className="flex-1 text-xl font-thin hidden mobile-nav flex justify-center items-center z-50">
+            <div>
+              <img src="./menu.svg" alt="" width={25} height={25}/>
             </div>
-            <Player speed={3} onEvent={event => {
-            if (event === 'load'){
-              addEvent(); 
-            }
-            if (event == 'frame' && playerRef.current.state.instance.isPaused !== true){
-              if(playerRef.current.state.seeker >= 65 && playerRef.current.state.seeker <= 70){
-                playerRef.current.pause();
-                playerRef.current.setSeeker(71);
-              }
-            }
-          }} src={AionData} ref={playerRef}  style={{ height: '30px', width: '30px' }} className='z-50 relative'>
-          </Player>
-            <ul id='bgmenu' className="flex text-3xl font-medium flex-col absolute top-0 right-0 bg-navbur bg-opacity-100 pt-32 pl-10 md:pl-20 w-full h-100 justify-start items-start">
-              <li className='py-6 cursor-pointer'><NavLink onClick={enableScroll} to="/#">Home</NavLink></li>
-              <li className='py-6 cursor-pointer'><NavLink onClick={enableScroll} to="/tienda">Shop</NavLink></li>
-            </ul>
+            <div className="logoContainer flex-1 text-3xl lg:text-2xl font-medium text-center flex flex-row justify-start justify-center items-center">
+              <img src="logo.png" alt=""/>
+            </div>
+            <div className="content w-fit rounded-md flex flex-row justify-center items-center">
+                <a className='pr-2 font-medium' onClick={showChart}>
+                  <img src="./shop.svg" alt="" width={35} height={35}/>
+                </a>
+            </div>
           </nav>
         </header>
+        <div className='absolute w-screen h-screen bg-[color:var(--color-nav)] top-0 right-0 z-50 hidden'>
+          <div className='w-4/5 h-screen right-0 absolute bg-white'>
+            <div className='w-full flex justify-center items-center'>
+            <div className='pb-2 border-b-2 w-fit border-gray-400 m-4'>
+                <div className='flex justify-start bg-white w-fit p-2 border-gray-400 border'>
+                  <input type="text" placeholder='Search for products...' />
+                  <img src="/Search.svg" alt="" />
+                </div>
+              </div>
+            </div>
+              <ul className='list-none ml-4 text-xl'>
+                <li className='py-2 border-b-2'>Home</li>
+                <li className='py-2 border-b-2 flex items-center justify-between'>Shop <img className="pr-10" src="arrowDown.svg" alt="" /></li>
+                <ul className='hidden'>
+                  <li className='py-2 pl-8 border-b-2'>Accessories</li>
+                  <li className='py-2 pl-8 border-b-2'>Hoodies</li>
+                  <li className='py-2 pl-8 border-b-2'>Jackets</li>
+                  <li className='py-2 pl-8 border-b-2'>Shirts</li>
+                </ul>
+              </ul>
+          </div>
+        </div>
       </>
     )
   }

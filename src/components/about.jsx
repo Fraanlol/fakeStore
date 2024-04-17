@@ -1,23 +1,29 @@
-import { NavLink } from "react-router-dom";
-
 export default function About() {
     return (
-       <section className="section-about z-20 relative bg-[color:var(--color-1)] text-black w-full py-32">
-        <div className="flex flex-col items-center justify-center about-flexible pr-16 gap-y-16">
-            <div className="about-container flex flex-row items-center flex-wrap flex-auto mb-8 w-full justify-start gap-x-32 pl-20">
-                <h3 className="mb-16 text-5xl font-bold review-title">About<br className="hide-small"/> us</h3>
-                <div className="flex flex-col justify-center items-start max-w-2xl">
-                    <p className="text-md">Ocson is a company dedicated to the e-commerce sector. Our goal is to help entrepreneurs sell their products on Amazon and other e-commerce platforms, providing consultancy and support throughout the process.</p>
-                    <NavLink to={'/cursos'} className="inline-block mt-4 px-12 py-4 bg-[color:var(--color-3)] text-white rounded-md">
-                        Discover
-                    </NavLink>
-                </div>
-            </div>
-           <div className="about-img-container self-start mr-8">
-            <img className="about-img" src="/about-1.jpg" alt="" />
-           </div>
+     <div className="px-4 md:px-24 mb-16 2xl:px-60">
+        <p className="text-4xl">Our latest</p>
+        <p className="text-4xl pl-8 font-bold">Collection</p>
+        <div className="pt-8 flex flex-col gap-8">
+            <p>Quisque imperdiet nisl malesuada orci sodales cursus. 
+                Nunc laoreet vestibulum risus, quis rhoncus risus efficitur semper. 
+                Proin dapibus massa quam, a gravida urna lobortis a. 
+                Integer faucibus diam eget urna pharetra aliquet. 
+                Duis cursus dui sit amet massa dapibus, sagittis iaculis libero semper. 
+                Vivamus ac accumsan sapien, nec condimentum erat. Praesent placerat vitae nulla in pellentesque. 
+                Proin et urna vel libero sodales pulvinar a nec metus. Praesent eget odio non eros fringilla tempor quis at diam. 
+                Quisque vestibulum hendrerit elit, quis sagittis leo tempor pellentesque. 
+                Nulla mauris ligula, malesuada ac lobortis non, finibus eget quam. Nam enim mauris, commodo vitae iaculis et, ultricies ac urna. 
+                Pellentesque eget quam in urna consectetur sollicitudin et blandit urna. Suspendisse malesuada dignissim consequat.
+            </p>
+            <p>In semper libero vel rhoncus maximus. 
+                Cras diam arcu, ultricies et cursus at, imperdiet nec leo. 
+                Praesent tempor magna ante. Integer elementum pretium enim, ornare tempor nisi ullamcorper eu. 
+                Praesent convallis porta felis at egestas. Fusce at sodales nibh. 
+                Fusce dignissim, risus a laoreet sodales, orci justo rhoncus sapien, quis sollicitudin nibh eros sed purus. 
+                Integer lobortis feugiat sem.
+            </p>
         </div>
-       </section>
+     </div>
     )
   }
   
