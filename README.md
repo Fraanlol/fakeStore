@@ -1,8 +1,17 @@
-# React + Vite
+# Store Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Url: fakestore-theta.vercel.app
 
-Currently, two official plugins are available:
+Made with:
+  -React
+  -React Router
+  -Vite
+  -Tailwind
+  -i18n
+  
+Resources from: 
+  -fakeStore API
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+With this project i've used the opportunity to add new react knowledge, i've used for first time React Context to manage the global state of the shopping bag.
+I've decided to use Tailwind since i like the quickness it gives at the time of building a small project like this one!
+I've also gave it a shot to i18n and applied some translations to the navBar (I'd like to make a full translated page on my next projects)
